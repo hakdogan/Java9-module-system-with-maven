@@ -23,9 +23,9 @@ You should use the following command in the root directory of the project.
 sh run.sh
 ----
 
-== Prerequisites:
-* Maven >= 3.0.0
+== Requirements
+* JDK 9 Early Access 152 or later
+* Maven 3.0.0 or later
 * maven-compiler-plugin version 3.6.1
-* JDK 9 Early Access >= 152
 
 image::images/readme.gif[]
