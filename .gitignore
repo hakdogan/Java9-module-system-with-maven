@@ -1,0 +1,9 @@
+**/.idea/
+**/*.iml
+**/target
+**/log/
+**/*.war
+**/*.jar
+**/.DS_Store
+mods/
+out/

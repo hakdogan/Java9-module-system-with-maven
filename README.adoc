@@ -1,0 +1,25 @@
+= Example of Java 9 module system with maven
+
+This application simply exemplifies how to use ``Module System`` on Java 9 with ``maven``. In adition, it uses some libraries such as ``h2 database`` and ``log4j`` as an example of adding the external library.
+
+== How do I compile?
+
+You should use the following command in the root directory of the project to compile the classes.
+
+[source,]
+----
+mvn clean install
+----
+
+== How do I run?
+
+You should use the following command in the root directory of the project.
+
+[source,]
+----
+sh run.sh
+----
+
+== Prerequisites:
+* Maven >= 3.0.0
+* JDK 9 Early Access >= 152
