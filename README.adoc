@@ -10,7 +10,7 @@ You should use the following command in the root directory of the project to com
 
 [source,]
 ----
-mvn clean install -f Java9ModuleSystem
+mvn clean install
 
 ----
 
