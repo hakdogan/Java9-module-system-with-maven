@@ -25,4 +25,7 @@ sh run.sh
 
 == Prerequisites:
 * Maven >= 3.0.0
+* maven-compiler-plugin version 3.6.1
 * JDK 9 Early Access >= 152
+
+image::images/readme.gif[]
