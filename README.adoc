@@ -1,4 +1,4 @@
-= Example of Java 9 module system with maven
+= Example of Java 9 Module System with Maven
 
 image:https://travis-ci.org/hakdogan/Java9-module-system-with-maven.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/Java9-module-system-with-maven"]
 
@@ -26,6 +26,6 @@ sh run.sh
 == Requirements
 * JDK 9 Early Access 152 or later
 * Maven 3.0.0 or later
-* maven-compiler-plugin version 3.6.1
+* maven-compiler-plugin version 3.6.1 or later
 
 image::images/readme.gif[]
