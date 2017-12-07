@@ -56,7 +56,7 @@ public class User {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", rofession='" + profession + '\'' +
+                ", profession='" + profession + '\'' +
                 ", age=" + age +
                 '}';
     }

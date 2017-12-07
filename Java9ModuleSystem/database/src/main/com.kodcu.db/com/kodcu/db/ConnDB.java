@@ -1,6 +1,8 @@
 package com.kodcu.db;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import com.kodcu.user.User;
 import org.apache.logging.log4j.LogManager;
@@ -20,7 +22,7 @@ public class ConnDB {
 
     private static ConnDB instance = null;
     private static Object lock = new Object();
-    private static Connection CONNECTION;
+    private static Connection connection;
 
     private static final Logger logger  = LogManager.getLogger(ConnDB.class);
 
@@ -43,23 +45,23 @@ public class ConnDB {
      */
     public Connection getDBConnection() {
 
-        if(Objects.isNull(CONNECTION)){
+        if(Objects.isNull(connection)){
 
             try {
                 Class.forName(DB_DRIVER);
             } catch (ClassNotFoundException e) {
-                logger.error(e.getMessage());
+                logger.error(e);
             }
 
             try {
                 return DriverManager.getConnection(DB_CONNECTION_STRING, DB_USER, DB_PASSWORD);
             } catch (SQLException e) {
-                logger.error(e.getMessage());
+                logger.error(e);
 
             }
         }
 
-        return CONNECTION;
+        return connection;
     }
 
     /**
@@ -67,40 +69,60 @@ public class ConnDB {
      * @param user
      * @throws SQLException
      */
-    public void insertWithStatement(User user) throws SQLException {
+    public void insertWithStatement(User user) {
 
         DeleteDbFiles.execute("~", DB_NAME, true);
-        Connection connection = getDBConnection();
+        Connection conn = getDBConnection();
         Statement stmt;
 
         try {
 
-            connection.setAutoCommit(false);
-            stmt = connection.createStatement();
+            conn.setAutoCommit(false);
+            stmt = conn.createStatement();
             createTable(stmt);
             stmt.execute("INSERT INTO PERSON(id, firstname, lastname, profession, age) VALUES(null, '"
                     + user.getFirstName() + "', '" + user.getLastName() + "', '" + user.getProfession() + "', " + user.getAge() + ")");
 
-            ResultSet rs = stmt.executeQuery("select * from PERSON");
             logger.info("H2 Database inserted through Statement");
 
-            while (rs.next()) {
-                logger.info("Id: " + rs.getInt("id") + " First Name: " + rs.getString("firstname")
-                        + " Last Name: " + rs.getString("lastname") + " Profession: " + rs.getString("profession")
-                        + " Age: " + rs.getInt("age"));
-            }
-
             stmt.close();
-            connection.commit();
-        } catch (SQLException e) {
-            logger.error(e.getMessage());
+            conn.commit();
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error(e);
         } finally {
-            connection.close();
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                logger.error(e);
+            }
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public List<String> getUsers(){
+
+        List<String> result = new ArrayList<>();
+
+        try {
+            Connection conn = getDBConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from PERSON");
+            while (rs.next()) {
+                String info = "Id: " + rs.getInt("id") + " First Name: " + rs.getString("firstname")
+                        + " Last Name: " + rs.getString("lastname") + " Profession: " + rs.getString("profession")
+                        + " Age: " + rs.getInt("age");
+                result.add(info);
+                logger.info(info);
+            }
+        } catch (Exception e){
+            logger.error(e);
+        }
+
+        return result;
+    }
     /**
      *
      * @param stmt

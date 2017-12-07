@@ -1,7 +1,6 @@
 = Example of Java 9 Module System with Maven
 
 image:https://travis-ci.org/hakdogan/Java9-module-system-with-maven.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/Java9-module-system-with-maven"]
-image:https://img.shields.io/codecov/c/github/codecov/example-java.svg[Codecov]
 
 This application simply exemplifies how to use ``Module System`` on Java 9 with ``maven``. In adition, it uses some libraries such as ``h2 database`` and ``log4j`` as an example of adding the external library.
 
