@@ -6,7 +6,7 @@ This application simply exemplifies how to use ``Module System`` on Java 9 with 
 
 == How do I compile?
 
-You should use the following command in the root directory of the project to compile the classes.
+You should use the following command under the ``Java9ModuleSystem`` directory of the project to compile the classes.
 
 [source,]
 ----
@@ -16,11 +16,18 @@ mvn clean install
 
 == How do I run?
 
-You should use the following command in the root directory of the project.
+After compile, you should use the following command under the ``Java9ModuleSystem`` directory of the project.
 
 [source,]
 ----
 sh run.sh
+----
+
+Or do this
+
+[source,]
+----
+java --module-path libs -m info/com.kodcu.info.InfoUser
 ----
 
 == Requirements

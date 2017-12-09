@@ -2,6 +2,7 @@
 **/*.iml
 **/target
 **/log/
+**/libs
 **/*.war
 **/*.jar
 **/.DS_Store

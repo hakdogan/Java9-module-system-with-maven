@@ -12,25 +12,6 @@
     <artifactId>database</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <build>
-        <sourceDirectory>src/main/com.kodcu.db</sourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>com.kodcu</groupId>
@@ -48,4 +29,19 @@
             <version>1.4.196</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/com.kodcu.db</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <outputDirectory>../libs</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
