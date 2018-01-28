@@ -23,11 +23,11 @@ After compile, you should use the following command under the ``Java9ModuleSyste
 sh run.sh
 ----
 
-Or do this
+Or do this under the ``info`` directory.
 
 [source,]
 ----
-java --module-path libs -m info/com.kodcu.info.InfoUser
+mvn exec:exec
 ----
 
 == Requirements
