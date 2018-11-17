@@ -1,3 +1,4 @@
 project:
   buildFileDirectory: Java9ModuleSystem/
-  execCommand: "mvn exec:exec"
+  execCommandWorkDir: Java9ModuleSystem/info
+  execCommand: mvn exec:exec
