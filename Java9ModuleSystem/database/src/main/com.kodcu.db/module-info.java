@@ -3,10 +3,9 @@
  */
 
 module database {
-    requires log4j.core;
-    requires log4j.api;
     requires java.sql;
     requires user;
     requires h2;
+    requires org.apache.logging.log4j;
     exports com.kodcu.db;
 }
